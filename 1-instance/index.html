@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue </title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+
+
+    <div id="app">
+
+        <h1>{{ title }}</h1>
+        <p>{{content}}</p>
+
+
+        <!-- bir attribute bind etmek istersek attribute başına v-bind: yazmalıyız fakat vue js de sadece : koyarsakta bunu sağlamış oluruz. -->
+        <a :target="github.target" :href="github.url" :alt="github.alt">{{github.title}}</a>
+
+
+        <br>
+        <!-- içerisine bir parametre girdik. -->
+        <button v-on:click="changeTitle('1.title')">Title Değiştir...</button>
+        <button v-on:click="changeTitle('2.title')">Title Değiştir...</button>
+
+        <!-- v-on:click yerine @click i kullanabiliriz. -->
+
+        <div @mousemove="updateCoords('mouseMoooove',$event)" class="box" @click="changeTitle('Box üzerinden gelen')">
+        </div>
+        <span>{{coords.x}}, {{coords.y}}</span>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
